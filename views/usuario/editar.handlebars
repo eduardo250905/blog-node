@@ -1,0 +1,54 @@
+{{#each erros}}
+    <div class="alert alert-danger">{{texto}}</div>
+{{else}}
+
+{{/each}}
+
+<h4>Edite sua conta: </h4>
+<div class="card">
+  <div class="card-body">
+    <form action="" method="post">
+      <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome" class="form-control" value="{{user.nome}}" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-mail:</label>
+        <input type="email" name="email" id="email" class="form-control" value="{{user.email}}" required>
+      </div>
+
+      <div class="form-group">
+        <label for="senha">Confirme sua senha: </label>
+        <div class="input-group">
+          <input type="password" id="senha" name="senha" class="form-control" required>
+          <span class="input-group-text" onclick="toggleSenha()" style="cursor:pointer;">
+            <i class="bi bi-eye" id="iconeSenha"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-success mt-3">Editar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<script>
+  function toggleSenha() {
+    const input = document.getElementById('senha');
+    const icone = document.getElementById('iconeSenha');
+
+    if (input.type === "password") {
+      input.type = "text";
+      icone.classList.remove('bi-eye');
+      icone.classList.add('bi-eye-slash');
+    } else {
+      input.type = "password";
+      icone.classList.remove('bi-eye-slash');
+      icone.classList.add('bi-eye');
+    }
+  }
+</script>

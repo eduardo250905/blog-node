@@ -1,0 +1,20 @@
+<div class="modal fade" id="confirmarDelecao" tabindex="-1" aria-labelledby="confirmarDelecaoLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <form action="/usuario/deletar" method="POST">
+            <div class="modal-header">
+            <h5 class="modal-title" id="confirmarDelecaoLabel">Confirmar exclusão</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+            Tem certeza que deseja excluir sua conta? Essa ação não pode ser desfeita.
+            </div>
+            <input type="hidden" name="id" value="{{user._id}}">
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-danger">Deletar conta</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Blog do node</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/categorias">Categorias</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/postagens">Postagens</a>
+        </li>
+      </ul>
+      {{#if user}}
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Olá, {{user.nome}}
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+            <li><a class="dropdown-item" href="/usuario/editar">Editar conta</a></li>
+            <li><a class="dropdown-item" href="/admin">Entrar como admin</a></li>
+            <a class="dropdown-item text-danger" href="#" data-bs-toggle="modal" data-bs-target="#confirmarDelecao">Deletar conta</a> 
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/usuario/logout">Sair</a></li>
+          </ul>
+        </li>
+      </ul>
+      {{else}}
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Acesso
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+            <li><a class="dropdown-item" href="/usuario/registro">Criar conta</a></li>
+            <li><a class="dropdown-item" href="/usuario/login">Login</a></li>
+          </ul>
+        </li>
+      </ul>
+      {{/if}}
+    </div>
+  </div>
+</nav>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
